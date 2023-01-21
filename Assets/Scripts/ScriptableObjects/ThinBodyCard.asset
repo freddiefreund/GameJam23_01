@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThinBodyCard
   m_EditorClassIdentifier: 
   titleText: Thin Body
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 4852fcc2e4d699c44bed247c7d791d06, type: 3}
   backgroundImage: {fileID: 21300000, guid: a5fdc9b70dfbdb84ab08299465369122, type: 3}
   descriptionText: Lauch
   characterPart: {fileID: 11400000, guid: 744a5b275a8b1604891cf35c5b3a49d1, type: 2}

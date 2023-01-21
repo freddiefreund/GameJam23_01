@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponCookingSpoonCard
   m_EditorClassIdentifier: 
   titleText: Cooking Spoon
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: c7b1623550a8d10438555833e6fbd2c3, type: 3}
   backgroundImage: {fileID: 21300000, guid: c19d8b103e0cf60438dc38779bbcc183, type: 3}
   descriptionText: Can cook a mean battle
   characterPart: {fileID: 11400000, guid: 145b92481b333c646822aba675b70207, type: 2}

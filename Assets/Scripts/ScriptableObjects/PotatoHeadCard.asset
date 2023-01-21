@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PotatoHeadCard
   m_EditorClassIdentifier: 
   titleText: Potato Head
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: f7924840bd4386b4fa8376149f0e3092, type: 3}
   backgroundImage: {fileID: 21300000, guid: c19d8b103e0cf60438dc38779bbcc183, type: 3}
   descriptionText: 
   characterPart: {fileID: 11400000, guid: 1a684bb67a29a3e44b6c2a602d000021, type: 2}

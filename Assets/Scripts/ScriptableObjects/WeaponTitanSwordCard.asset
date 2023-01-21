@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponTitanSwordCard
   m_EditorClassIdentifier: 
   titleText: Titan Sword
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 085bb005a21ad804fb762941e723a93e, type: 3}
   backgroundImage: {fileID: 21300000, guid: a5fdc9b70dfbdb84ab08299465369122, type: 3}
   descriptionText: A large and unwieldy sword
   characterPart: {fileID: 11400000, guid: 993e9c8e93a213c4998e06ba1348955f, type: 2}

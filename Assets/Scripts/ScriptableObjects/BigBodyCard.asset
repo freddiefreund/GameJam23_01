@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigBodyCard
   m_EditorClassIdentifier: 
   titleText: Big Body
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 01bf8811f3e573248ad3a7841916c8d1, type: 3}
   backgroundImage: {fileID: 21300000, guid: a5fdc9b70dfbdb84ab08299465369122, type: 3}
   descriptionText: This is a very big body.
   characterPart: {fileID: 11400000, guid: ac249c5c2f8d24042850c17e66b6d6f2, type: 2}

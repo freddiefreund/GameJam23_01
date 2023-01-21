@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakArmsCard
   m_EditorClassIdentifier: 
   titleText: Weak Arms
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 4c5ba74e06411ff49acb933f6932f395, type: 3}
   backgroundImage: {fileID: 21300000, guid: a5fdc9b70dfbdb84ab08299465369122, type: 3}
   descriptionText: Lauch
   characterPart: {fileID: 11400000, guid: 2542e77e6c07e35499a41e86e93e09d6, type: 2}

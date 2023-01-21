@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireSkullCard
   m_EditorClassIdentifier: 
   titleText: Fire Skull
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: e1dcc87c1b9ef3048867bea47a497c9a, type: 3}
   backgroundImage: {fileID: 21300000, guid: 20f6abdcdd11e28448be1f698e36e222, type: 3}
   descriptionText: A raging spirit, getting his vengeance
   characterPart: {fileID: 11400000, guid: 6395b6b04dc00394c86a9fedb3cbaf88, type: 2}
