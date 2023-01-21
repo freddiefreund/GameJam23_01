@@ -69,6 +69,8 @@ public class CharacterFighting : MonoBehaviour
     {
         OnAttack.Invoke(position, 10 * attackValue); // TODO: use proper attack formula 
         currentCooldown = 1.0f;
+
+        //SFXPlayer.instance.PlaySound();
     }
 
     public void StopFighting()
