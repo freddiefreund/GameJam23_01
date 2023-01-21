@@ -5,12 +5,12 @@ namespace Character
 {
     public class Character : MonoBehaviour
     {
-        [SerializeField] private Sprite head;
-        [SerializeField] private Sprite body;
-        [SerializeField] private Sprite armFront;
-        [SerializeField] private Sprite armBack;
-        [SerializeField] private Sprite weapon;
-        [SerializeField] private Sprite legs;
+        [SerializeField] private SpriteRenderer head;
+        [SerializeField] private SpriteRenderer body;
+        [SerializeField] private SpriteRenderer armFront;
+        [SerializeField] private SpriteRenderer armBack;
+        [SerializeField] private SpriteRenderer weapon;
+        [SerializeField] private SpriteRenderer legs;
         
         private List<CharacterPart> _parts;
 
@@ -18,17 +18,17 @@ namespace Character
         {
             if (part is CharacterHead)
             {
-                head = part.sprite;
+                head.sprite = part.sprite;
             }else if (part is CharacterBody)
             {
-                body = part.sprite;
+                body.sprite = part.sprite;
             }else if (part is CharacterArms)
             {
-                armFront = part.sprite;
-                armBack = ((CharacterArms)part).sprite2;
+                armFront.sprite = part.sprite;
+                armBack.sprite = ((CharacterArms)part).sprite2;
             }else if (part is CharacterWeapon)
             {
-                weapon = part.sprite;
+                weapon.sprite = part.sprite;
             }
         }
     }
