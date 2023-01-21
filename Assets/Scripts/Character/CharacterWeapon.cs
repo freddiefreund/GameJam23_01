@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/CharacterPart/Weapon", order = 4)]
 public class CharacterWeapon : CharacterPart
 {
-    
+    public AudioClip audioClip;
+    public float attackValue;
 }
