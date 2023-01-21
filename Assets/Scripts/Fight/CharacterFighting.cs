@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Character : MonoBehaviour
+public class CharacterFighting : MonoBehaviour
 {
     public enum CharPosition
     {

@@ -9,5 +9,6 @@ namespace ScriptableObjects
         public Sprite cardImage;
         public Sprite backgroundImage;
         public string descriptionText;
+        public CharacterPart characterPart;
     }
 }

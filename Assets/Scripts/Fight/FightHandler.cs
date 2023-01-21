@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
-using static Character;
+
 
 class FightHandler : MonoBehaviour
 {
-    public UnityEvent<CharPosition> OnWinFight;
+    public UnityEvent<CharacterFighting.CharPosition> OnWinFight;
 
-    [SerializeField] private Character[] characters;
+    [SerializeField] private CharacterFighting[] characters;
 
     private bool isFighting = true;
 
@@ -21,19 +21,19 @@ class FightHandler : MonoBehaviour
         DOTween.Init();
     }
 
-    public void AttackCharacter(CharPosition attacker, float attackValue)
+    public void AttackCharacter(CharacterFighting.CharPosition attacker, float attackValue)
     {
         int targetIndex = 1 - (int)attacker;
 
         characters[targetIndex].ReceiveDamage(attackValue);
     }
 
-    public void CheckForDeath(CharPosition defender, float health)
+    public void CheckForDeath(CharacterFighting.CharPosition defender, float health)
     {
         if (health <= 0)
         {
             int winnerIndex = 1 - (int)defender;
-            OnWinFight.Invoke((CharPosition)winnerIndex);
+            OnWinFight.Invoke((CharacterFighting.CharPosition)winnerIndex);
         }
     }
 }

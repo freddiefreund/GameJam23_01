@@ -7,6 +7,7 @@ public class CharacterCardArea : MonoBehaviour
 {
     [SerializeField] private Transform startCardPosition;
     [SerializeField] private Vector3 placementOffset;
+    [SerializeField] private Character.Character character;
     
     private List<Card> _placedCards = new ();
 
@@ -14,6 +15,7 @@ public class CharacterCardArea : MonoBehaviour
     {
         card.transform.position = startCardPosition.position + placementOffset * _placedCards.Count;
         _placedCards.Add(card);
+        character.AddPart(card.cardData.characterPart);
         card.Place();
         return true;
     }

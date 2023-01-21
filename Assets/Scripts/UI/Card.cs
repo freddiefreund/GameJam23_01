@@ -15,12 +15,12 @@ public class Card : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI descriptionElement;
     [SerializeField] private Image backgroundElement;
 
+    public CardData cardData;
     private bool _isPlaced;
-    private CardData _cardData;
 
     public void SetValues(CardData data)
     {
-        _cardData = data;
+        cardData = data;
         titleElement.text = data.titleText;
         imageElement.sprite = data.cardImage;
         descriptionElement.text = data.descriptionText;

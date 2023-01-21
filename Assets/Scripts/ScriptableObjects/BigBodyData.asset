@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c13ae74495b2154dbb5b075f85f7a5f, type: 3}
-  m_Name: Plant1
+  m_Script: {fileID: 11500000, guid: a834040d5b2c017469523a4117398156, type: 3}
+  m_Name: BigBodyData
   m_EditorClassIdentifier: 
-  titleText: Cactus
-  cardImage: {fileID: 0}
-  backgroundImage: {fileID: 21300000, guid: c19d8b103e0cf60438dc38779bbcc183, type: 3}
-  descriptionText: You can throw this cactus to deal damage.
+  sprite: {fileID: 21300000, guid: a8cad51761b2d624091746624b55253e, type: 3}

@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Character;
+using static Character.Character;
 
 public class FightUIHandler : MonoBehaviour
 {
@@ -25,12 +25,12 @@ public class FightUIHandler : MonoBehaviour
         
     }
 
-    public void UpdateLifeBar(CharPosition position, float value)
+    public void UpdateLifeBar(CharacterFighting.CharPosition position, float value)
     {
         lifeBars[(int)position].transform.DOScaleX(value * 3 / 100, 0.2f);
     }
 
-    public void SpawnDamageText(CharPosition position, float value)
+    public void SpawnDamageText(CharacterFighting.CharPosition position, float value)
     {
         GameObject instance = Instantiate(damageTextPrefab, canvas.transform);
         instance.transform.localPosition = textOffsetPositions[(int)position];
