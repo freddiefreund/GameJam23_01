@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: WeaponCookingSpoonData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2e2a2cd770d853c4691de93515034ba0, type: 3}
+  audioClip: {fileID: 8300000, guid: 370920960ca00e84bbe81765e7b03559, type: 3}
+  attackValue: 0
