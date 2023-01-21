@@ -21,6 +21,17 @@ class FightHandler : MonoBehaviour
         DOTween.Init();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            characters[1].gameObject.SetActive(true);
+            characters[0].StartCoroutine("AttackLoop");
+            characters[1].StartCoroutine("AttackLoop");
+            characters[0].transform.DOMoveX(-3f, 0.5f).SetEase(Ease.OutCirc);
+        }
+    }
+
     public void AttackCharacter(CharacterFighting.CharPosition attacker, float attackValue)
     {
         int targetIndex = 1 - (int)attacker;

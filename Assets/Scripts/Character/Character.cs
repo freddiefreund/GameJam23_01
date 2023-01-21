@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,14 @@ namespace Character
         [SerializeField] private SpriteRenderer weapon;
         [SerializeField] private SpriteRenderer legs;
         
+        public AudioClip weaponSound;
+        
         private List<CharacterPart> _parts;
+
+        private void Start()
+        {
+            DontDestroyOnLoad(this);
+        }
 
         public void AddPart(CharacterPart part)
         {
@@ -29,6 +37,7 @@ namespace Character
             }else if (part is CharacterWeapon)
             {
                 weapon.sprite = part.sprite;
+                weaponSound = ((CharacterWeapon)part).audioClip;
             }
         }
     }

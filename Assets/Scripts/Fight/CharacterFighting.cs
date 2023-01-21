@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,26 +22,23 @@ public class CharacterFighting : MonoBehaviour
     [SerializeField] private float attackValue;
     [SerializeField] private float defenseValue;
     [SerializeField] private float speedValue;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject player;
+    
 
     private float currentHealth = 100;
     private float currentCooldown = 1.0f;
 
     private bool isFighting = true;
+    private Character.Character _character;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        StartCoroutine("AttackLoop");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _character = GetComponent<Character.Character>();
     }
 
 
-    private IEnumerator AttackLoop()
+    public IEnumerator AttackLoop()
     {
         while(isFighting && currentHealth > 0) // and fight not finished
         {
@@ -70,7 +68,8 @@ public class CharacterFighting : MonoBehaviour
         OnAttack.Invoke(position, 10 * attackValue); // TODO: use proper attack formula 
         currentCooldown = 1.0f;
 
-        //SFXPlayer.instance.PlaySound();
+        if(_character != null)
+            SFXPlayer.instance.PlaySound(_character.weaponSound);
     }
 
     public void StopFighting()

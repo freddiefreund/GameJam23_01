@@ -13,6 +13,7 @@ public class SFXPlayer : MonoBehaviour
     {
         if (instance != null) return;
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
     public void PlaySound(AudioClip audioClip)

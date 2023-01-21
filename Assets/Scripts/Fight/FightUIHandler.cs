@@ -12,17 +12,10 @@ public class FightUIHandler : MonoBehaviour
 
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject[] lifeBars;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DontDestroyOnLoad(this);
     }
 
     public void UpdateLifeBar(CharacterFighting.CharPosition position, float value)
