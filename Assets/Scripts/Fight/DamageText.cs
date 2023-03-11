@@ -11,7 +11,8 @@ public class DamageText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.DOMoveY(transform.position.y + 100.0f, 3.0f).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
+        
+        transform.DOMoveY(transform.position.y + 200.0f, 3.0f).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
     }
 
     public void SetText(string text)

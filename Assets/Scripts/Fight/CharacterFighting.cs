@@ -19,10 +19,8 @@ public class CharacterFighting : MonoBehaviour
     }
 
     public UnityEvent<CharPosition, CharTargetPart, float> OnAttack;
-    public UnityEvent<CharPosition, float> OnReceiveDamage;
+    public UnityEvent<CharPosition, CharTargetPart, float> OnReceiveDamage;
     public UnityEvent<CharPosition, float> OnUpdateHealth;
-
-    static float timeStep = 0.02f;
 
     [SerializeField] private CharPosition _position;
     
@@ -56,7 +54,7 @@ public class CharacterFighting : MonoBehaviour
         currentHealth = Mathf.Max(currentHealth - (trueDamage), 0.0f);
 
         OnUpdateHealth.Invoke(_position, currentHealth);
-        OnReceiveDamage.Invoke(_position, trueDamage);
+        OnReceiveDamage.Invoke(_position, targetPart, trueDamage);
     }
 
     private void Attack()
