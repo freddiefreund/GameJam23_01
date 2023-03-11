@@ -16,6 +16,8 @@ public class CardPack : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float spawnPause;
     [SerializeField] private AudioClip cardSound1;
     [SerializeField] private AudioClip cardSound2;
+    [SerializeField] private int cardPrice;
+    
 
     private AudioSource _audioSource;
 
@@ -26,7 +28,8 @@ public class CardPack : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        StartCoroutine(OpenPack());
+        if(ResourceManager.SpendResource(cardPrice))
+            StartCoroutine(OpenPack());
     }
 
     private IEnumerator OpenPack()

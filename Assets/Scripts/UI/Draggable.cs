@@ -45,19 +45,25 @@ public class Draggable : MonoBehaviour, IPointerDownHandler
 
     private void HandleMouseRelease()
     {
-        var characterCardArea = CheckIfMouseIsOverCharacterCardArea();
+        var characterCardArea = CheckIfMouseIsOverAreaWithTag("CharacterCardArea");
         _mouseIsHeldDown = false;
         _isDragging = false;
         if (characterCardArea != null)
         {
-            transform.SetParent(characterCardArea.transform);
-            characterCardArea.PlaceCard(GetComponent<Card>());
-            enabled = false;
+            var area = characterCardArea.GetComponent<CharacterCardArea>();
+            transform.SetParent(area.transform);
+            area.PlaceCard(GetComponent<Card>());
+            return;
         }
-        else
+
+        var trashCardArea = CheckIfMouseIsOverAreaWithTag("TrashCardArea");
+        if (trashCardArea != null)
         {
-            transform.SetParent(_origParent);
+            ResourceManager.GainResource(1);
+            Destroy(gameObject);
         }
+        
+        transform.SetParent(_origParent);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -69,19 +75,20 @@ public class Draggable : MonoBehaviour, IPointerDownHandler
         _previousMousePosition = Input.mousePosition;
     }
     
-    public static CharacterCardArea CheckIfMouseIsOverCharacterCardArea()
+    public static GameObject CheckIfMouseIsOverAreaWithTag(string tag)
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
         pointerEventData.position = Input.mousePosition;
 
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-        CharacterCardArea dropZone = null;
         foreach (var raycastResult in raycastResults)
         {
-            raycastResult.gameObject.TryGetComponent(out dropZone);
+            var resultGameObject = raycastResult.gameObject;
+            if (resultGameObject.CompareTag(tag))
+                return resultGameObject;
         }
 
-        return dropZone;
+        return null;
     }
 }
