@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: FireSkullHead
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9601896e13b181d4c814c1bbd9ff8931, type: 3}
+  element: 2
+  hp: 0
+  headDefense: 1

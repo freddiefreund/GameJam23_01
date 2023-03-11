@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: WeakArmsData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 32e9ad9e6cff80b48b34f0bdb59ae945, type: 3}
+  element: 0
   sprite2: {fileID: 21300000, guid: 8c0ff6ee0c759a24ba3cace2eb60e8ad, type: 3}
+  attackBonus: 0.8
+  speedModifier: 2

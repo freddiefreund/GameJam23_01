@@ -10,7 +10,7 @@ public class CharacterCardArea : MonoBehaviour
 {
     [SerializeField] private Transform startCardPosition;
     [SerializeField] private Vector3 placementOffset;
-    [SerializeField] private Character.Character character;
+    [SerializeField] private Player player;
     [SerializeField] private Transform bottomCardAreaTransform;
 
     private int _numOfPlacedCards;
@@ -71,7 +71,7 @@ public class CharacterCardArea : MonoBehaviour
         
         card.transform.position = startCardPosition.position + placementOffset * _numOfPlacedCards;
         _numOfPlacedCards++;
-        character.AddPart(card.cardData.characterPart);
+        player.AddPart(card.cardData.characterPart);
         card.transform.SetParent(transform);
         card.Place();
         PositionCards();

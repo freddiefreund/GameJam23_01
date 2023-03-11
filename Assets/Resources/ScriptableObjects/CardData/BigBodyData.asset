@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: BigBodyData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a8cad51761b2d624091746624b55253e, type: 3}
+  element: 0
+  hp: 100
+  bodyDefense: 1

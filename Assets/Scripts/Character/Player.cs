@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Character
 {
-    class Player : Character
+    public class Player : Character
     {
         [SerializeField] private SpriteRenderer head;
         [SerializeField] private SpriteRenderer body;
@@ -55,21 +55,20 @@ namespace Character
             CharacterWeapon weapon = (CharacterWeapon)_parts.Find(part => part is CharacterWeapon);
 
 
-            float attackBonus = 0;
-            float headDamage = 10; //Default Basedamage
-            float bodyDamage = 10;
+            float attackBonus = arms.attackBonus;
 
-            if (arms != null) attackBonus = arms.attackBonus;
             if (weapon != null)
             {
-                headDamage = weapon.attackValueHead;
-                bodyDamage = weapon.attackValueBody;
+                AttackHead = weapon.attackValueHead * attackBonus;
+                AttackBody = weapon.attackValueBody * attackBonus;
+                Speed = arms.speedModifier * weapon.speedModifier;
             }
-
-            AttackHead = headDamage * attackBonus;
-            AttackBody = bodyDamage * attackBonus;
-
-            Speed = arms.speedModifier * weapon.speedModifier;
+            else
+            {
+                AttackHead = 10 * attackBonus;
+                AttackBody = 10 * attackBonus;
+                Speed = arms.speedModifier;
+            }
         }
     }
 }

@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: WeaponTitanSwordData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: f0b1569b12fa66f4c8c0e408b4c363ae, type: 3}
+  element: 0
   audioClip: {fileID: 8300000, guid: 898b73b084ceefb47b3fa5ecbd2620a2, type: 3}
-  attackValue: 0
+  attackValueHead: 50
+  attackValueBody: 50
+  speedModifier: 0.5

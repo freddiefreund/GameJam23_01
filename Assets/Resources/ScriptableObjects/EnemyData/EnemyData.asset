@@ -17,6 +17,6 @@ MonoBehaviour:
   hp: 100
   attackHead: 10
   attackBody: 10
-  headDefense: 10
-  bodyDefense: 10
+  headDefense: 1
+  bodyDefense: 1
   speed: 1

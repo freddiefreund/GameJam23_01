@@ -653,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCardPosition: {fileID: 1431509183}
   placementOffset: {x: 0, y: -20, z: 0}
-  character: {fileID: 1506076031}
+  player: {fileID: 1506076034}
   bottomCardAreaTransform: {fileID: 334188984}
 --- !u!1 &550830063
 GameObject:
@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 1506076033}
   - component: {fileID: 1506076034}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32b7cf0a6da84d469ead015360d8d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startResources: 10
+  startResources: 20
 --- !u!224 &1811424505 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6287198591295314598, guid: 19ac8e555f084404e825eb3e0c774d4f, type: 3}

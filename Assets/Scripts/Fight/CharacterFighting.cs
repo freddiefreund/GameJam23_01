@@ -33,7 +33,7 @@ public class CharacterFighting : MonoBehaviour
     private bool isFighting = true;
     private Character.Character _character;
 
-    private void Start()
+    private void OnEnable()
     {
         _character = GetComponent<Character.Character>();
     }

@@ -10,7 +10,7 @@ using static CharacterFighting;
 
 class FightHandler : MonoBehaviour
 {
-    public UnityEvent<CharacterFighting.CharPosition> OnWinFight;
+    public UnityEvent<CharPosition> OnWinFight;
 
     [SerializeField] private CharacterFighting[] characters;
 
