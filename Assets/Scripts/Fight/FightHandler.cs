@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
-
+using static CharacterFighting;
 
 class FightHandler : MonoBehaviour
 {
@@ -32,11 +32,11 @@ class FightHandler : MonoBehaviour
         }
     }
 
-    public void AttackCharacter(CharacterFighting.CharPosition attacker, float attackValue)
+    public void AttackCharacter(CharacterFighting.CharPosition attacker, CharTargetPart targetPart, float attackValue)
     {
         int targetIndex = 1 - (int)attacker;
 
-        characters[targetIndex].ReceiveDamage(attackValue);
+        characters[targetIndex].ReceiveDamage(attackValue, targetPart);
     }
 
     public void CheckForDeath(CharacterFighting.CharPosition defender, float health)

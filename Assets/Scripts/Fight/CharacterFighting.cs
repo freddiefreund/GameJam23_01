@@ -8,22 +8,23 @@ public class CharacterFighting : MonoBehaviour
 {
     public enum CharPosition
     {
-        LEFT = 0,
-        RIGHT = 1
+        Left = 0,
+        Right = 1
     }
 
-    public UnityEvent<CharPosition, float> OnAttack;
+    public enum CharTargetPart
+    {
+        Head = 0,
+        Body = 1
+    }
+
+    public UnityEvent<CharPosition, CharTargetPart, float> OnAttack;
     public UnityEvent<CharPosition, float> OnReceiveDamage;
     public UnityEvent<CharPosition, float> OnUpdateHealth;
 
     static float timeStep = 0.02f;
 
-    [SerializeField] private CharPosition position;
-    [SerializeField] private float attackValue;
-    [SerializeField] private float defenseValue;
-    [SerializeField] private float speedValue;
-    [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject player;
+    [SerializeField] private CharPosition _position;
     
 
     private float currentHealth = 100;
@@ -40,36 +41,31 @@ public class CharacterFighting : MonoBehaviour
 
     public IEnumerator AttackLoop()
     {
-        while(isFighting && currentHealth > 0) // and fight not finished
+        currentCooldown = 1.0f / _character.Speed;
+        while (isFighting && currentHealth > 0)
         {
-            if (currentCooldown > 0)
-            {
-                currentCooldown = Mathf.Max(currentCooldown - timeStep, 0.0f);
-            }
-            else
-            {
-                Attack();
-            }
-            yield return new WaitForSeconds(timeStep);
+            yield return new WaitForSeconds(currentCooldown);
+            Attack();
         }
     }
 
-    public void ReceiveDamage(float value)
+    public void ReceiveDamage(float rawDamage, CharTargetPart targetPart)
     {
-        float fullDamage = value / defenseValue;
-        currentHealth = Mathf.Max(currentHealth - (fullDamage), 0.0f); // TODO: use proper defense formula
+        float defense = targetPart == CharTargetPart.Head ? _character.HeadDefense : _character.BodyDefense;
+        float trueDamage = rawDamage / defense;
+        currentHealth = Mathf.Max(currentHealth - (trueDamage), 0.0f);
 
-        OnUpdateHealth.Invoke(position, currentHealth);
-        OnReceiveDamage.Invoke(position, fullDamage);
+        OnUpdateHealth.Invoke(_position, currentHealth);
+        OnReceiveDamage.Invoke(_position, trueDamage);
     }
 
     private void Attack()
     {
-        OnAttack.Invoke(position, 10 * attackValue); // TODO: use proper attack formula 
-        currentCooldown = 1.0f;
-
-        if(_character != null)
-            SFXPlayer.instance.PlaySound(_character.weaponSound);
+        OnAttack.Invoke(_position, CharTargetPart.Head, _character.AttackHead);
+        OnAttack.Invoke(_position, CharTargetPart.Body, _character.AttackBody);
+        currentCooldown = 1.0f / _character.Speed;
+        
+        SFXPlayer.instance.PlaySound(_character.WeaponSound);
     }
 
     public void StopFighting()

@@ -6,4 +6,6 @@ using UnityEngine;
 public class CharacterArms : CharacterPart
 {
     public Sprite sprite2;
+    public float attackBonus;
+    public float speedModifier;
 }

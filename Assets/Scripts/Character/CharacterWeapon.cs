@@ -6,5 +6,7 @@ using UnityEngine;
 public class CharacterWeapon : CharacterPart
 {
     public AudioClip audioClip;
-    public float attackValue;
+    public float attackValueHead;
+    public float attackValueBody;
+    public float speedModifier;
 }
