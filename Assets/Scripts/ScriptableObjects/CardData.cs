@@ -10,6 +10,5 @@ namespace ScriptableObjects
         public Sprite backgroundImage;
         public string descriptionText;
         public CharacterPart characterPart;
-        
     }
 }

@@ -23,8 +23,56 @@ public class Card : MonoBehaviour, IPointerClickHandler
         cardData = data;
         titleElement.text = data.titleText;
         imageElement.sprite = data.cardImage;
-        descriptionElement.text = data.descriptionText;
+        descriptionElement.text = GetDescriptionFromPart(data.characterPart);
         backgroundElement.sprite = data.backgroundImage;
+    }
+
+    private string GetDescriptionFromPart(CharacterPart part)
+    {
+        if (part is CharacterHead)
+        {
+            return GetHeadDescription((CharacterHead)part);
+        }
+        if (part is CharacterBody)
+        {
+            return GetBodyDescription((CharacterBody)part);
+        }
+        if (part is CharacterArms)
+        {
+            return GetArmsDescription((CharacterArms)part);
+        }
+        if (part is CharacterWeapon)
+        {
+            return GetWeaponDescription((CharacterWeapon)part);
+        }
+
+        return "hmmmm";
+    }
+
+    private string GetHeadDescription(CharacterHead head)
+    {
+        return $"HP: {head.hp} \nHeadDef: {head.headDefense}";
+    }
+
+    private string GetBodyDescription(CharacterBody body)
+    {
+        return $"HP: {body.hp} \nBodyDef: {body.bodyDefense}";
+    }
+    
+    private string GetArmsDescription(CharacterArms arms)
+    {
+        return $"Atk x{arms.attackBonus} \nSpeed x{arms.speedModifier}";
+    }
+
+    private string GetWeaponDescription(CharacterWeapon weapon)
+    {
+        var descr = $"Speed x{weapon.speedModifier}";
+        if (weapon.attackValueBody > 0)
+            descr += $"\nBody atk.: {weapon.attackValueBody}";
+        if (weapon.attackValueHead > 0)
+            descr += $"\nHead atk.: {weapon.attackValueHead}";
+        
+        return descr;
     }
 
     public void Place()
