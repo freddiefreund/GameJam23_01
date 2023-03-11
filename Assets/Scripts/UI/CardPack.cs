@@ -28,7 +28,7 @@ public class CardPack : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(ResourceManager.SpendResource(cardPrice))
+        if(bottomCardArea.childCount <= 3 && ResourceManager.SpendResource(cardPrice))
             StartCoroutine(OpenPack());
     }
 
