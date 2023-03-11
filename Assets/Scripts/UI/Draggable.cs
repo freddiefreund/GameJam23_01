@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,7 +11,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler
     private bool _mouseIsHeldDown;
     private Vector3 _previousMousePosition;
     private bool _isDragging;
-    
+
     private void Start()
     {
         _origParent = transform.parent;
@@ -45,14 +46,24 @@ public class Draggable : MonoBehaviour, IPointerDownHandler
 
     private void HandleMouseRelease()
     {
-        var characterCardArea = CheckIfMouseIsOverAreaWithTag("CharacterCardArea");
         _mouseIsHeldDown = false;
         _isDragging = false;
+        
+        var characterCardArea = CheckIfMouseIsOverAreaWithTag("CharacterCardArea");
         if (characterCardArea != null)
         {
-            var area = characterCardArea.GetComponent<CharacterCardArea>();
-            transform.SetParent(area.transform);
-            area.PlaceCard(GetComponent<Card>());
+            var characterArea = characterCardArea.GetComponent<CharacterCardArea>();
+            if (characterArea.PlaceCard(GetComponent<Card>()))
+            {
+                enabled = false;
+                return;
+            }
+        }
+
+        var bottomCardArea = CheckIfMouseIsOverAreaWithTag("BottomCardArea");
+        if (bottomCardArea != null)
+        {
+            transform.SetParent(bottomCardArea.transform);
             return;
         }
 
@@ -62,7 +73,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler
             ResourceManager.GainResource(1);
             Destroy(gameObject);
         }
-        
+
         transform.SetParent(_origParent);
     }
 

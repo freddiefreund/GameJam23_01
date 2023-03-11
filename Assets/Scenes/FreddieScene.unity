@@ -649,6 +649,7 @@ MonoBehaviour:
   startCardPosition: {fileID: 1431509183}
   placementOffset: {x: 0, y: -20, z: 0}
   character: {fileID: 1506076031}
+  bottomCardAreaTransform: {fileID: 334188984}
 --- !u!1 &550830063
 GameObject:
   m_ObjectHideFlags: 0
